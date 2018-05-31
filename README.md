@@ -1,2 +1,2 @@
 # javascript
-git学习
+复习javascript知识点
