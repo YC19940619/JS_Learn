@@ -1,2 +1,2 @@
-# learngit
+# javascript
 git学习
