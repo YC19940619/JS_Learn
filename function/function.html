@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+</body>
+<script>
+    function A(){
+        this.x = 1;
+        this.y = 2;
+    }
+    A.prototype ={
+        add: function(){
+            return this.x+this.y
+        }
+    }
+    function B (){
+        A.call(this)
+    }
+    // 第二步，子类继承父类的原型
+    // B.prototype = Object.create(A.prototype);
+    B.prototype.add = A.prototype.add
+    console.log(B.prototype)
+    console.log(new B().add())
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        @font-face {
+            font-family: 'AtelierOmega';
+            src:url('font/AtelierOmega/AtelierOmega.woff')
+        }
+        @font-face {
+            font-family: 'CircularStd';
+            src:url('font/CircularStd/CircularStd.woff')
+        }
+        @font-face {
+            font-family: 'DearJoeitalic';
+            src:url('font/DearJoeitalic/DearJoeitalic.woff')
+        }
+        @font-face {
+            font-family: 'Jhroh';
+            src:url('font/Jhroh/Jhroh.woff')
+        }
+        @font-face {
+            font-family: 'KhadIja';
+            src:url('font/KhadIja/KhadIja.woff')
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <canvas id="myCanvas4" width="200" height="100"
+                style="border:1px solid #000000;">
+        </canvas>
+        <input value="yangchen">
+        <button onclick="gofont()">生成文字</button>
+    </div>
+    <div style="font-family: AtelierOmega;overflow: hidden;height: 50px;">yangchen</div><!--先用一个看不见的标签引用字体文件-->
+    <div style="font-family: CircularStd;overflow: hidden;height: 50px;">yangchen</div><!--先用一个看不见的标签引用字体文件-->
+    <div style="font-family: DearJoeitalic;overflow: hidden;height: 50px;">yangchen</div><!--先用一个看不见的标签引用字体文件-->
+    <div style="font-family: Jhroh;overflow: hidden;height: 50px;">yangchen</div><!--先用一个看不见的标签引用字体文件-->
+    <div style="font-family: KhadIja;overflow: hidden;height: 50px;">yangchen</div><!--先用一个看不见的标签引用字体文件-->
+
+</body>
+<script >
+
+    var myCanvas4=document.getElementById("myCanvas4");//找到一个canvas
+    var ctx4=myCanvas4.getContext("2d");//然后，创建 context 对象：getContext("2d") 对象是内建的 HTML5 对象，拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。
+    function gofont() {
+        ctx4.clearRect(0,0,200,200)
+        var val = document.getElementsByTagName('input')[0].value;
+        ctx4.font = "50px AtelierOmega";
+        ctx4.fillText(val, 10, 50);//写字
+    }
+</script>
+</html>

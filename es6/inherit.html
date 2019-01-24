@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inherit</title>
+</head>
+<body></body>
+<script>
+    var Animal = function(name){
+        this.name = name || '杨晨';
+        this.sleep = function(){
+            console.log(this.name+'正在睡觉！')
+        }
+    }
+    Animal.prototype.eat = function (food) {
+        console.log(this.name+'正在吃'+food)
+    }
+    var animal = new Animal()
+    //原型链继承
+    var Cat = function(){}
+    Cat.prototype = animal
+    var cat = new Cat();
+
+    console.log(cat.name)
+    console.log(animal)
+</script>
+</html>

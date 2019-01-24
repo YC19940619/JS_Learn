@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">请求</button>
+<div id="item">
+
+</div>
+</body>
+<script>
+    var ws = new WebSocket("ws://192.168.3.66:9110/product/notification/send?ident=yangchen");
+    ws.onopen = function(evt) {
+        console.log("建立成功")
+        // setInterval(function(){
+        //     ws.send("我还活着")
+        //     console.log("我还活着")
+        // },3000)
+    };
+    ws.onmessage = function(evt) {
+        try {
+            var data = JSON.parse(evt.data)
+            console.log(data.skuid)
+            document.getElementById("item").innerHTML = data.skuid + new Date()
+        }
+        catch (err){}
+    }
+    // ws.onclose = function(evt) {
+    //     console.log("Connection closed.");
+    // };
+    document.getElementById("btn").onclick = function(){
+        window.open('http://192.168.3.66:9110/product/notification/recv?skuid=12123&ident=yangchen')
+    }
+</script>
+</html>
